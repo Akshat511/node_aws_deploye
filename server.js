@@ -1,11 +1,21 @@
-const express=require('express');
+const express = require('express');
+const app = express();
+const PORT = 9000;
 
-const app=express();
+app.use(express.json());
 
-app.get('/api/get',(req,res)=>{
-    res.send({message:'Nodejs Aws Deployment'});
-})
+let users = []; 
 
-app.listen(9000,(req,res)=>{
-    console.log('server running on port 9000')
-})
+
+app.get('/api/get', (req, res) => {
+    res.status(200).send({ message: 'Node.js AWS Deployment' });
+});
+
+
+app.get('/aaj', (req, res) => {
+    res.status(200).send({ message: 'Dev',email: 'tiwariakshat2023it@gmail.com' });
+});
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
